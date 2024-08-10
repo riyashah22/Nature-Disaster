@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/home/airquality.dart';
 import 'package:resqaid/theme/theme_ext.dart';
+import 'package:intl/intl.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class Home extends StatefulWidget {
@@ -65,6 +64,7 @@ class _HomeState extends State<Home> {
     ],
   );
   // late AirQuality aqiData;
+  String time = "";
   String _location = "";
   String _name = "Green Zone!";
   String _type = "No immediate climate concerns";
@@ -74,6 +74,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     // _getLocation();
+
     fetchAirQuality().then(
       (value) async {
         setState(() {
@@ -96,13 +97,14 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appColors.accent,
-        elevation: 0,
+        // backgroundColor: appColors.accent,
+        // elevation: 0,
         centerTitle: true,
         title: Text(
           "ResQAid",
           style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                fontSize: 40,
+                // fontSize: 40,
+                color: appColors.navyBlue,
               ),
         ),
       ),
@@ -112,48 +114,52 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: 12,
+              ),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Welcome',
-                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                          color: appColors.richBlack,
+                  RichText(
+                    text: TextSpan(
+                        text: "Hi, ",
+                        style:
+                            Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: appColors.richBlack,
+                                ),
+                        children: [
+                          TextSpan(
+                            text: "Vansh",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium!
+                                .copyWith(
+                                  color: appColors.primary,
+                                ),
+                          )
+                        ]),
+                  ),
+                  ElevatedButton.icon(
+                    style: const ButtonStyle(
+                        // backgroundColor: WidgetStatePropertyAll(
+                        //   appColors.navyBlue,
+                        // ),
                         ),
-                  ),
-                  FilledButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      padding: const MaterialStatePropertyAll(EdgeInsets.zero),
-                      visualDensity: VisualDensity.comfortable,
-                      fixedSize: const MaterialStatePropertyAll(
-                        Size(60, 60),
-                      ),
-                      backgroundColor: MaterialStatePropertyAll(
-                        // Color(0xff000000),
-                        appColors.error,
-                      ),
-                      shape: const MaterialStatePropertyAll(
-                        CircleBorder(
-                            // side: BorderSide(),
-                            ),
-                      ),
+                    icon: const Icon(
+                      Icons.logout,
                     ),
-                    child: SvgPicture.asset("assets/icons/outline/logout.svg"),
-                  ),
+                    onPressed: () {},
+                    label: const Text("Log out"),
+                  )
                 ],
               ),
-              Text(
-                "Aryan",
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontSize: 40,
-                    ),
+              const SizedBox(
+                height: 16,
               ),
-              const Gap(10),
               Card(
-                color: appColors.accent,
-                elevation: 10,
+                color: appColors.white,
+                elevation: 7,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
@@ -162,10 +168,10 @@ class _HomeState extends State<Home> {
                     children: [
                       Row(
                         children: [
-                          SvgPicture.asset(
-                            "assets/icons/outline/like.svg",
+                          Image.asset(
+                            "assets/images/eco-friendly.gif",
                             height: screenHeight * 0.1,
-                            color: appColors.primary,
+                            // color: appColors.accent,
                           ),
                           const Gap(10),
                           Column(
@@ -198,17 +204,21 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
-                      // const Gap(10),
+                      const Gap(10),
                       const Gap(10),
                       Center(
                         child: Text(
-                          "ETA : ${_eta}",
+                          "Location fetched: ${DateFormat('yyyy-MM-dd hh:mm:ss').format(DateTime.now())}",
                           style:
                               Theme.of(context).textTheme.titleLarge!.copyWith(
-                                    color: appColors.richBlack,
-                                    fontSize: 15,
+                                    color: appColors.navyBlue,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
                                   ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 8,
                       ),
                       Divider(
                         color: appColors.primary,
@@ -285,27 +295,27 @@ class _HomeState extends State<Home> {
               const Gap(10),
               Container(
                 height: screenHeight * 0.2,
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Container(
                       height: screenHeight * 0.1,
                       width: screenWidth * 0.4,
-                      margin: EdgeInsets.only(
+                      margin: const EdgeInsets.only(
                         right: 10,
                       ),
                       decoration: BoxDecoration(
                         color: appColors.accent,
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(30),
                         ),
                       ),
                       child: Column(
                         children: [
-                          Gap(20),
+                          const Gap(20),
                           Text("${aqiData.forecast[index].day}"),
-                          Gap(10),
-                          Divider(),
+                          const Gap(10),
+                          const Divider(),
                           Text("Max: ${aqiData.forecast[index].max}"),
                           Text("Min: ${aqiData.forecast[index].min}"),
                           Text("Avg: ${aqiData.forecast[index].avg}"),

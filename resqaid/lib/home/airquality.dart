@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class AirQuality {
@@ -55,10 +54,24 @@ Future<AirQuality> fetchAirQuality() async {
       'https://api.waqi.info/feed/here/?token=6b96a07ff45c1dcc3931d81e109506673c44e728'; // API URL
 
   final response = await http.get(Uri.parse(apiUrl));
-  log(response.body);
+  // log(response.body);
   if (response.statusCode == 200) {
     final jsonData = json.decode(response.body);
     return AirQuality.fromJson(jsonData);
+  } else {
+    throw Exception('Failed to load air quality data');
+  }
+}
+
+Future<dynamic> fetchAirQuality2() async {
+  const String apiUrl =
+      'https://api.waqi.info/feed/here/?token=6b96a07ff45c1dcc3931d81e109506673c44e728'; // API URL
+
+  final response = await http.get(Uri.parse(apiUrl));
+  // log(response.body);
+  if (response.statusCode == 200) {
+    final jsonData = json.decode(response.body);
+    return jsonData;
   } else {
     throw Exception('Failed to load air quality data');
   }
