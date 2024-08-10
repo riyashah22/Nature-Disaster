@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:resqaid/authentication/authentication.dart';
+import 'package:resqaid/provider/user_provider.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 
 class Signup extends StatefulWidget {
@@ -29,6 +31,11 @@ class _SignupState extends State<Signup> {
 
   void onSubmit() {
     //set username in provider
+    Provider.of<UserProvider>(context, listen: false).setUser(
+        username: _username.text, email: _email.text, password: _password.text);
+
+    Navigator.pushNamedAndRemoveUntil(
+        context, Authentication.routeName, (route) => false);
   }
 
   @override

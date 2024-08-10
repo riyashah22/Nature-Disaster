@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:resqaid/authentication/signup.dart';
+import 'package:resqaid/community/model/user.dart';
 import 'package:resqaid/navbar.dart';
+import 'package:resqaid/provider/user_provider.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 
 class Authentication extends StatefulWidget {
@@ -23,15 +26,19 @@ class _AuthenticationState extends State<Authentication> {
     _password.dispose();
   }
 
-  void signIn() {
-    if (_username.text == "vansh" && _username.text == "vansh") {
+  void signIn(User user) {
+    if (_username.text == user.username && _password.text == user.password) {
       Navigator.pushReplacementNamed(context, Navbar.routeName);
-    } else {}
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("User not found")));
+    }
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     final appColors = context.appColors;
     return Scaffold(
       appBar: AppBar(
@@ -184,7 +191,7 @@ class _AuthenticationState extends State<Authentication> {
                     GestureDetector(
                       onTap: () {
                         if (signInForm.currentState!.validate()) {
-                          signIn();
+                          signIn(user);
                         }
                       },
                       child: Icon(

@@ -44,6 +44,8 @@ dependencies:
   svg_flutter:
   youtube_player_iframe: ^5.1.4
   http:
+  provider: ^6.1.2
+  flutter_local_notifications: ^17.2.2
 
 dev_dependencies:
   flutter_test:
