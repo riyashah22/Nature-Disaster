@@ -22,7 +22,7 @@ class _CommunityState extends State<Community> {
   List<Post> posts = [
     Post(
       title: "Himachal Pradesh Landslides 2023",
-      donationAmount: 8500000.00,
+      donationAmount: 35970.00,
       deadline: "30-09-2023",
       imageUrl:
           "https://ichef.bbci.co.uk/news/1536/cpsprodpb/c09e/live/50608890-4e3d-11ef-93dc-c92fccfe6baf.jpg.webp",
@@ -162,32 +162,49 @@ class _CommunityState extends State<Community> {
                                   ),
                           textAlign: TextAlign.justify,
                         ),
-                        Text(
-                          "Donated: ₹${posts[index].donationAmount}",
-                          style: TextStyle(
-                            color: appColors.richBlack,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Center(
+                          child: RichText(
+                            text: TextSpan(
+                              text: "Raised: ₹${posts[index].donationAmount}",
+                              style: TextStyle(
+                                color: appColors.richBlack,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                              ),
+                              children: const [
+                                TextSpan(
+                                  text: " out of ₹70000.0",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            OutlinedButton.icon(
+                            ElevatedButton.icon(
                               style: ButtonStyle(
-                                  foregroundColor: WidgetStatePropertyAll(
+                                  backgroundColor: WidgetStatePropertyAll(
                                 appColors.navyBlue,
                               )),
-                              icon: Icon(Icons.person_add),
+                              icon: const Icon(Icons.person_add),
                               onPressed: () {},
-                              label: Text(
-                                "Volunteer",
+                              label: const Text(
+                                "Become Volunteer",
                               ),
                             ),
                             ElevatedButton.icon(
-                              icon: Icon(Icons.monetization_on),
+                              icon: const Icon(Icons.monetization_on),
                               onPressed: () {},
-                              label: Text(
+                              label: const Text(
                                 "Donate",
                               ),
                             )
