@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:resqaid/theme/appColors.dart';
+import 'package:resqaid/theme/theme_ext.dart';
 
 class Chatbot extends StatefulWidget {
   //route to chatbot screen
@@ -36,21 +38,43 @@ class _ChatbotState extends State<Chatbot> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = context.appColors;
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Chat with Gemini",
-            style: TextStyle(
-                // color: Colors.amber,
-                ),
-          ),
+      appBar: AppBar(
+        backgroundColor: appColors.accent,
+        title: const Text(
+          "Disaster Response Hub",
         ),
-        body: _chatpage());
+      ),
+      body: _chatpage(context),
+    );
   }
 
-  Widget _chatpage() {
+  Widget _chatpage(BuildContext context) {
+    final appColors = context.appColors;
+
     return DashChat(
-      messageOptions: MessageOptions(),
+      inputOptions: InputOptions(
+        autocorrect: true,
+        inputTextStyle: Theme.of(context).textTheme.bodyLarge,
+        cursorStyle: CursorStyle(
+          color: appColors.primary,
+        ),
+        textCapitalization: TextCapitalization.words,
+        alwaysShowSend: true,
+        inputDecoration: InputDecoration(
+          iconColor: appColors.primary,
+          // suffixIcon: ,
+          suffixIconColor: appColors.primary,
+          prefixIconColor: appColors.primary,
+        ),
+      ),
+      messageOptions: MessageOptions(
+        containerColor: appColors.primary,
+        currentUserContainerColor: appColors.accent,
+        currentUserTextColor: appColors.richBlack,
+      ),
       messages: messages,
       currentUser: user,
       onSend: _sendChat,

@@ -1,8 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/home/airquality.dart';
-import 'package:resqaid/theme/appColors.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
@@ -14,7 +15,55 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  AirQuality aqiData = AirQuality(aqi: 0, lat: 0, lon: 0, forecast: []);
+  AirQuality aqiData = AirQuality(
+    aqi: 0,
+    lat: 0,
+    lon: 0,
+    forecast: [
+      Forecast(
+        day: "2024 - 08 - 09",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 10",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 11",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 12",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 13",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 14",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+      Forecast(
+        day: "2024 - 08 - 15",
+        avg: 0,
+        min: 0,
+        max: 0,
+      ),
+    ],
+  );
   // late AirQuality aqiData;
   String _location = "";
   String _name = "Green Zone!";
@@ -30,6 +79,7 @@ class _HomeState extends State<Home> {
         setState(() {
           aqiData = value;
           _location = "Lati : ${aqiData.lat} , Long :  ${aqiData.lon}";
+          // log(aqiData.forecast[0].toString());
         });
       },
     );
@@ -62,11 +112,37 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Welcome',
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      color: appColors.richBlack,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Welcome',
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                          color: appColors.richBlack,
+                        ),
+                  ),
+                  FilledButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+                      visualDensity: VisualDensity.comfortable,
+                      fixedSize: const MaterialStatePropertyAll(
+                        Size(60, 60),
+                      ),
+                      backgroundColor: MaterialStatePropertyAll(
+                        // Color(0xff000000),
+                        appColors.error,
+                      ),
+                      shape: const MaterialStatePropertyAll(
+                        CircleBorder(
+                            // side: BorderSide(),
+                            ),
+                      ),
                     ),
+                    child: SvgPicture.asset("assets/icons/outline/logout.svg"),
+                  ),
+                ],
               ),
               Text(
                 "Aryan",
@@ -199,7 +275,7 @@ class _HomeState extends State<Home> {
               ),
               const Gap(10),
               Text(
-                "Weather Forecast",
+                "Weekly Forecast",
                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       color: appColors.richBlack,
                       fontSize: 28,
@@ -208,24 +284,59 @@ class _HomeState extends State<Home> {
               ),
               const Gap(10),
               Container(
-                width: screenWidth * 0.95,
-                height: screenHeight * 0.1,
-                decoration: BoxDecoration(
-                  color: appColors.navyBlue,
-                  // border: Border.all(width: 4),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30),
-                  ),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(10),
+                height: screenHeight * 0.2,
+                padding: EdgeInsets.all(8.0),
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: screenHeight * 0.1,
+                      width: screenWidth * 0.4,
+                      margin: EdgeInsets.only(
+                        right: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: appColors.accent,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(30),
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Gap(20),
+                          Text("${aqiData.forecast[index].day}"),
+                          Gap(10),
+                          Divider(),
+                          Text("Max: ${aqiData.forecast[index].max}"),
+                          Text("Min: ${aqiData.forecast[index].min}"),
+                          Text("Avg: ${aqiData.forecast[index].avg}"),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: 7,
+                  scrollDirection: Axis.horizontal,
                 ),
               ),
+              // Container(
+              //   width: screenWidth * 0.95,
+              //   height: screenHeight * 0.1,
+              //   decoration: BoxDecoration(
+              //     color: appColors.navyBlue,
+              //     // border: Border.all(width: 4),
+              //     borderRadius: const BorderRadius.all(
+              //       Radius.circular(30),
+              //     ),
+              //   ),
+              //   child: const Padding(
+              //     padding: EdgeInsets.all(10),
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        child: SvgPicture.asset("assets/icons/outline/message.svg"),
         onPressed: () {
           Navigator.pushNamed(
             context,
