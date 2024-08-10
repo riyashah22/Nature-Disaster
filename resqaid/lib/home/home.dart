@@ -15,10 +15,10 @@ class _HomeState extends State<Home> {
   // String _pinCode="";
   // String _latitude="";
   // String _longitude="";
-  String _name = "";
-  String _type = "";
-  String _origin = "";
-  String _eta = "";
+  String _name = "Name";
+  String _type = "type";
+  String _origin = "Bangalore";
+  String _eta = "2:00 hrs";
 
   @override
   void initState() {
@@ -61,16 +61,50 @@ class _HomeState extends State<Home> {
               const Gap(10),
               Card(
                 elevation: 10,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(_name),
-                    Text(_type),
-                    Divider(),
-                    Text(_origin),
-                    Text(_eta),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        _name,
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  color: appColors.richBlack,
+                                  fontSize: 35,
+                                ),
+                      ),
+                      Text(
+                        _type,
+                        style:
+                            Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: appColors.richBlack,
+                                  fontSize: 20,
+                                ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                        endIndent: 10,
+                        indent: 10,
+                      ),
+                      Text(
+                        _origin,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: appColors.richBlack,
+                            fontWeight: FontWeight.w700
+                            // fontSize: 35,
+                            ),
+                      ),
+                      Text(
+                        "ETA : ${_eta}",
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: appColors.richBlack,
+                              fontSize: 15,
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const Gap(10),
