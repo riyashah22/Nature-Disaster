@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 class Chatbot extends StatefulWidget {
+  //route to chatbot screen
   static const String routeName = "/chatbot";
   // final Gemini chatbot;
   const Chatbot({
