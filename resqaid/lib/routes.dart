@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/community/posts_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -7,6 +8,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const PostsScreen(),
+      );
+    case Chatbot.routeName:
+    // final chatbot = routeSettings.arguments as Gemini;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Chatbot(),
       );
     default:
       return MaterialPageRoute(

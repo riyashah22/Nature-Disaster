@@ -5,17 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 class Chatbot extends StatefulWidget {
-  const Chatbot({super.key});
+  static const String routeName = "/chatbot";
+  // final Gemini chatbot;
+  const Chatbot({
+    // required this.chatbot,
+    super.key,
+  });
 
   @override
   State<Chatbot> createState() => _ChatbotState();
 }
 
 class _ChatbotState extends State<Chatbot> {
-
   // @override
   // void initState(){
   //   super.initState();
+
   // }
 
   //Defining the chat parameters like user, and list of chat messages
@@ -31,11 +36,14 @@ class _ChatbotState extends State<Chatbot> {
 
   List<ChatMessage> messages = [];
 
+
   //For storing the refernece of Gemini
   final Gemini chatbot = Gemini.instance;
 
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: const Text(

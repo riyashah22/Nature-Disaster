@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:resqaid/chatbot/constants.dart';
 import 'package:resqaid/navbar.dart';
 import 'package:resqaid/routes.dart';
 import 'package:resqaid/theme/app_theme.dart';
 
 void main() {
+  Gemini.init(apiKey:GEMINI_API_KEY);
   runApp(const MyApp());
 }
 

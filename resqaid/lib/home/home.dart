@@ -6,8 +6,17 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      // floatingActionButton: Chatbot(),
-    );
+    return Scaffold(
+        body: SafeArea(
+          child: Column(children: []),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              Chatbot.routeName,
+            );
+          },
+        ));
   }
 }
