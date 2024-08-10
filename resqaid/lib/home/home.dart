@@ -3,14 +3,39 @@ import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String _location = "fxghj";
+  // String _pinCode="";
+  // String _latitude="";
+  // String _longitude="";
+  String _name = "";
+  String _type = "";
+  String _origin = "";
+  String _eta = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _getLocation();
+    _getClimateUpdates();
+  }
+
+  //get the location using geolocator api
+  _getLocation() async {}
+  //get the climate updates using api by the location data obtained from _getLocation()
+  _getClimateUpdates() async {}
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    String _location = "fxghj";
 
     final appColors = context.appColors;
 
@@ -34,9 +59,30 @@ class Home extends StatelessWidget {
                     ),
               ),
               const Gap(10),
+              Card(
+                elevation: 10,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(_name),
+                    Text(_type),
+                    Divider(),
+                    Text(_origin),
+                    Text(_eta),
+                  ],
+                ),
+              ),
+              const Gap(10),
               Container(
                 width: screenWidth * 0.95,
                 height: screenHeight * 0.1,
+                decoration: BoxDecoration(
+                  color: appColors.navyBlue,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(30),
+                  ),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Text(
@@ -47,20 +93,54 @@ class Home extends StatelessWidget {
                         ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                  color: appColors.navyBlue,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30),
-                  ),
-                ),
               ),
               const Gap(10),
               Text(
                 "Air Quality",
                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       color: appColors.richBlack,
+                      fontSize: 28,
                       overflow: TextOverflow.fade,
                     ),
+              ),
+              const Gap(10),
+              Container(
+                width: screenWidth * 0.95,
+                height: screenHeight * 0.1,
+                decoration: BoxDecoration(
+                  color: appColors.white,
+                  border: Border.all(width: 4),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                ),
+              ),
+              const Gap(10),
+              Text(
+                "Weather Forecast",
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      color: appColors.richBlack,
+                      fontSize: 28,
+                      overflow: TextOverflow.fade,
+                    ),
+              ),
+              const Gap(10),
+              Container(
+                width: screenWidth * 0.95,
+                height: screenHeight * 0.1,
+                decoration: BoxDecoration(
+                  color: appColors.navyBlue,
+                  // border: Border.all(width: 4),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                ),
               ),
             ],
           ),
