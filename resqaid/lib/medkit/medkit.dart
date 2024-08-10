@@ -200,13 +200,28 @@ class _MedkitState extends State<Medkit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Medical Information"),
-        actions: const [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.image), // Replace with your image
-          )
-        ],
+        flexibleSpace: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                "Medical Information",
+                style: TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Image.asset(
+                  "assets/images/medKit.png",
+                  height: 50,
+                  width: 50,
+                )),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
