@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 
 class Home extends StatelessWidget {
@@ -11,6 +12,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Text('Welcome to ResQAid'),
+            Gap(20),
           ],
         ),
       ),
