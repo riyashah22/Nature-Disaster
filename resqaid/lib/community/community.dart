@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 import 'package:url_launcher/url_launcher.dart';
 

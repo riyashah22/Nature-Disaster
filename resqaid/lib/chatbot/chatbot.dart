@@ -17,12 +17,6 @@ class Chatbot extends StatefulWidget {
 }
 
 class _ChatbotState extends State<Chatbot> {
-  // @override
-  // void initState(){
-  //   super.initState();
-
-  // }
-
   //Defining the chat parameters like user, and list of chat messages
   ChatUser user = ChatUser(
     id: "0",
@@ -36,14 +30,11 @@ class _ChatbotState extends State<Chatbot> {
 
   List<ChatMessage> messages = [];
 
-
   //For storing the refernece of Gemini
   final Gemini chatbot = Gemini.instance;
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
           title: const Text(
