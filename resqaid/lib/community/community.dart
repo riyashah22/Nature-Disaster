@@ -8,14 +8,11 @@ class Community extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.red,
+        title: Text("Support"),
       ),
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, PostsScreen.routeName);
-            },
-            child: Text("Post screen")),
+        child: Text("Community Screen"),
       ),
     );
   }
