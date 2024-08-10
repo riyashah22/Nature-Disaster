@@ -9,7 +9,9 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [],
+          children: [
+            Text('Welcome to ResQAid'),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
