@@ -25,8 +25,10 @@ class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      appBar: AppBar(toolbarHeight: 0,),
+      extendBody: false,
+      appBar: AppBar(
+        toolbarHeight: 0,
+      ),
       body: _modules[selectIndex],
       bottomNavigationBar: DotBottomNavBar(
         // backgroundColor: Colors.transparent,
