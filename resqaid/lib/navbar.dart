@@ -49,7 +49,7 @@ class _NavbarState extends State<Navbar> {
           BottomNavItem(
             emptySvg: "assets/icons/outline/community.svg",
             fillSvg: "assets/icons/fill/community.svg",
-            label: "Community",
+            label: "Support",
           ),
           BottomNavItem(
             emptySvg: "assets/icons/outline/education.svg",
