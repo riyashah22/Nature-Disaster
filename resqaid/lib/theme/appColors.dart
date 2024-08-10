@@ -8,6 +8,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color white;
   final Color richBlack;
   final Color success;
+  final Color warning;
   final Color error;
 
   AppColors({
@@ -18,6 +19,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.white,
     required this.richBlack,
     required this.success,
+    required this.warning,
     required this.error,
   });
 
@@ -41,5 +43,6 @@ class LightColor extends AppColors {
           richBlack: const Color(0xFF010B13),
           success: const Color(0xFF0F8A3C),
           error: const Color(0xFFD64C3E),
+          warning: const Color(0xffD6933D),
         );
 }
