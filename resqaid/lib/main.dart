@@ -8,10 +8,10 @@ import 'package:resqaid/provider/user_provider.dart';
 import 'package:resqaid/routes.dart';
 import 'package:resqaid/theme/app_theme.dart';
 
-void main() {
-  Gemini.init(apiKey: GEMINI_API_KEY);
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  NotificationHelper.init();
+  Gemini.init(apiKey: GEMINI_API_KEY);
+  await NotificationService.init();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => UserProvider(),

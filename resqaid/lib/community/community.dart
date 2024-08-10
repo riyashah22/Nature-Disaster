@@ -301,7 +301,7 @@ class _CommunityState extends State<Community> {
                             ElevatedButton.icon(
                               icon: const Icon(Icons.monetization_on),
                               onPressed: () {
-                                // // Show the loading dialog with the QR code
+                                // Show the loading dialog with the QR code
                                 showDialog(
                                   context: context,
                                   barrierDismissible: false,
@@ -363,6 +363,13 @@ class _CommunityState extends State<Community> {
                                                     );
                                                   },
                                                 );
+
+                                                // Send a notification after donation is completed
+                                                NotificationService
+                                                    .showInstantNotification(
+                                                  "Donation Successful",
+                                                  "Thank you for your generous donation of ₹${posts[index].donationAmount}!",
+                                                );
                                               },
                                               child: const Text("OK"),
                                             ),
@@ -377,7 +384,7 @@ class _CommunityState extends State<Community> {
                                 posts[index].donationStatus
                                     ? "Donated"
                                     : "Donate",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 12,
                                 ),
                               ),
