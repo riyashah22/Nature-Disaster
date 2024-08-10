@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:resqaid/authentication/signup.dart';
 import 'package:resqaid/navbar.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 
 class Authentication extends StatefulWidget {
+  static const String routeName = "/authentication";
   const Authentication({super.key});
 
   @override
@@ -201,8 +203,7 @@ class _AuthenticationState extends State<Authentication> {
                             color: Color(0xffACC8E4)),
                       ),
                       onPressed: () {
-                        // showSnackBar(context,
-                        //     "Under maintainance, contact admin@christuniversity.edu.in for further procedure");
+                        Navigator.of(context).pushNamed(Signup.routeName);
                       },
                     ),
                   ],

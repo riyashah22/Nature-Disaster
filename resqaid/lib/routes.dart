@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:resqaid/authentication/authentication.dart';
+import 'package:resqaid/authentication/signup.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/community/posts_screen.dart';
 import 'package:resqaid/education/player.dart';
@@ -26,6 +28,16 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const Navbar(),
+      );
+    case Signup.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Signup(),
+      );
+    case Authentication.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Authentication(),
       );
     default:
       return MaterialPageRoute(
