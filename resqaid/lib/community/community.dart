@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:resqaid/community/posts_screen.dart';
 
 class Community extends StatelessWidget {
   const Community({super.key});
@@ -7,12 +6,18 @@ class Community extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.emergency,
+        ),
+      ),
       appBar: AppBar(
         // backgroundColor: Colors.red,
         title: Text("Support"),
       ),
       body: Center(
-        child: Text("Community Screen"),
+        child: Text("Support Screen"),
       ),
     );
   }
