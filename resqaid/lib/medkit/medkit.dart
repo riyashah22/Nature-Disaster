@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 
 class Medkit extends StatefulWidget {
@@ -142,10 +141,10 @@ class _MedkitState extends State<Medkit> {
           'https://bloximages.chicago2.vip.townnews.com/thecourierexpress.com/content/tncms/assets/v3/editorial/0/92/09276668-63d0-11ee-8d76-c7f78c972e9d/651f3b5ac6859.image.jpg?resize=1200%2C747'
         ],
         'steps': [
-          '1.Run cool (not cold) water over the burn for 10-15 minutes.',
-          '2.Pat the area dry gently with a clean cloth.',
-          '3.Apply aloe vera gel or honey to the burn to soothe and heal.',
-          '4.Cover with a loose, sterile bandage if needed.'
+          '1. Run cool (not cold) water over the burn for 10-15 minutes.',
+          '2. Pat the area dry gently with a clean cloth.',
+          '3. Apply aloe vera gel or honey to the burn to soothe and heal.',
+          '4. Cover with a loose, sterile bandage if needed.'
         ]
       },
       {
@@ -155,10 +154,10 @@ class _MedkitState extends State<Medkit> {
           'https://www.farmersalmanac.com/wp-content/uploads/2006/01/bakingsoda4.jpg'
         ],
         'steps': [
-          '1.Wash the area with soap and water to remove any dirt or irritants.',
-          '2.Apply a baking soda paste (mix baking soda with water) or vinegar to reduce itching and swelling.',
-          '3.Apply aloe vera gel to soothe the skin.',
-          '4.If the sting is severe, seek medical attention.'
+          '1. Wash the area with soap and water to remove any dirt or irritants.',
+          '2. Apply a baking soda paste (mix baking soda with water) or vinegar to reduce itching and swelling.',
+          '3. Apply aloe vera gel to soothe the skin.',
+          '4. If the sting is severe, seek medical attention.'
         ]
       },
       {
@@ -168,9 +167,9 @@ class _MedkitState extends State<Medkit> {
           'https://images.healthshots.com/healthshots/en/uploads/2023/09/08105737/steam.jpg'
         ],
         'steps': [
-          '1.Move the person to fresh air immediately.',
-          '2.Encourage them to drink plenty of water to stay hydrated.',
-          '3.Have the person breathe in steam from a bowl of hot water (cover their head with a towel).'
+          '1. Move the person to fresh air immediately.',
+          '2. Encourage them to drink plenty of water to stay hydrated.',
+          '3. Have the person breathe in steam from a bowl of hot water (cover their head with a towel).'
         ]
       },
       {
@@ -193,10 +192,10 @@ class _MedkitState extends State<Medkit> {
           'https://static.toiimg.com/thumb/imgsize-23456,msid-110543836,width-600,resizemode-4/110543836.jpg'
         ],
         'steps': [
-          '1.Move the person to a cooler, shaded area.',
-          '2.Remove any excessive clothing.',
-          '3.Encourage the person to drink water or an electrolyte drink slowly.',
-          '4.Apply cool compresses to the skin, especially the forehead, neck, and armpits.'
+          '1. Move the person to a cooler, shaded area.',
+          '2. Remove any excessive clothing.',
+          '3. Encourage the person to drink water or an electrolyte drink slowly.',
+          '4. Apply cool compresses to the skin, especially the forehead, neck, and armpits.'
         ]
       },
     ],
@@ -234,9 +233,9 @@ class _MedkitState extends State<Medkit> {
           'https://media.self.com/photos/5972281835f46850de3024c6/16:9/w_1280,h_720,c_limit/SportsDrink-Truth-Electrolyte.jpg'
         ],
         'steps': [
-          '1.Move the person to a cool, shaded area.',
-          '2.Have them sip water or an electrolyte solution slowly.',
-          '3.Rest in a cool area and avoid further physical activity until fully rehydrated.'
+          '1. Move the person to a cool, shaded area.',
+          '2. Have them sip water or an electrolyte solution slowly.',
+          '3. Rest in a cool area and avoid further physical activity until fully rehydrated.'
         ]
       },
       {
@@ -246,10 +245,10 @@ class _MedkitState extends State<Medkit> {
           'https://static.toiimg.com/thumb/msid-68991946,width-1280,height-720,imgsize-811560,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg'
         ],
         'steps': [
-          '1.Move out of the sun and into a shaded or cool area.',
-          '2.Apply cool compresses to the affected areas.',
-          '3.Apply aloe vera gel or coconut oil to soothe and moisturize the skin.',
-          '4.Drink plenty of water to stay hydrated.'
+          '1. Move out of the sun and into a shaded or cool area.',
+          '2. Apply cool compresses to the affected areas.',
+          '3. Apply aloe vera gel or coconut oil to soothe and moisturize the skin.',
+          '4. Drink plenty of water to stay hydrated.'
         ]
       },
       {
@@ -274,7 +273,7 @@ class _MedkitState extends State<Medkit> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Medical Information",
+          "Emergency Care Guide",
           style: TextStyle(
             fontSize: 22.0,
             fontWeight: FontWeight.bold,
@@ -286,13 +285,24 @@ class _MedkitState extends State<Medkit> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text(
+              textAlign: TextAlign.center,
+              "\"Swift Knowledge, Safer Actions\"",
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    // letterSpacing: 1.5,
+                    color: appColors.navyBlue,
+                  ),
+            ),
+            const SizedBox(height: 16),
             Center(
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: appColors.accent,
                   borderRadius: BorderRadius.circular(12.0),
-                  border: Border.all(color: appColors.navyBlue, width: 1.0),
+                  border: Border.all(color: appColors.navyBlue, width: 0.4),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: DropdownButton<String>(
@@ -304,7 +314,7 @@ class _MedkitState extends State<Medkit> {
                     child: const Icon(Icons.arrow_drop_down),
                   ),
                   isExpanded: true,
-                  underline: SizedBox(), // Hides the default underline
+                  underline: const SizedBox(), // Hides the default underline
                   onChanged: (String? newValue) {
                     setState(() {
                       selectedCategory = newValue!;
@@ -330,17 +340,6 @@ class _MedkitState extends State<Medkit> {
                     );
                   }).toList(),
                 ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              textAlign: TextAlign.center,
-              "\"Strength in adversity, unity in recovery.\"",
-              style: GoogleFonts.raleway(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.5,
-                color: appColors.primary,
               ),
             ),
             const SizedBox(height: 8),
@@ -400,10 +399,14 @@ class _MedkitState extends State<Medkit> {
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                                 color: appColors.richBlack,
-                                letterSpacing: 1.2,
-                                decoration: TextDecoration.underline,
+                                // letterSpacing: 1.2,
+                                // decoration: TextDecoration.underline,
                               ),
                             ),
+                          ),
+                          const Divider(
+                            indent: 12,
+                            endIndent: 12,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -414,7 +417,13 @@ class _MedkitState extends State<Medkit> {
                                       child: Text(
                                         textAlign: TextAlign.justify,
                                         step,
-                                        style: const TextStyle(fontSize: 16.0),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge!
+                                            .copyWith(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 16,
+                                            ),
                                       ),
                                     ))
                                 .toList(),
