@@ -6,6 +6,7 @@ import 'package:resqaid/home/home.dart';
 import 'package:resqaid/medkit/medkit.dart';
 
 class Navbar extends StatefulWidget {
+  static const String routeName = "/nav-bar";
   const Navbar({super.key});
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/community/posts_screen.dart';
 import 'package:resqaid/education/player.dart';
+import 'package:resqaid/navbar.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -20,6 +21,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const Player(),
+      );
+    case Navbar.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Navbar(),
       );
     default:
       return MaterialPageRoute(
