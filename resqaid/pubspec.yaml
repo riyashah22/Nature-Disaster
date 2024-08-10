@@ -41,7 +41,9 @@ dependencies:
   url_launcher: ^6.3.0
   dash_chat_2:
   gap:
+  svg_flutter:
   youtube_player_iframe: ^5.1.4
+  http:
 
 dev_dependencies:
   flutter_test:

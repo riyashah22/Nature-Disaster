@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
+import 'package:resqaid/home/airquality.dart';
 import 'package:resqaid/theme/theme_ext.dart';
+import 'package:svg_flutter/svg_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,26 +13,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String _location = "fxghj";
-  // String _pinCode="";
-  // String _latitude="";
-  // String _longitude="";
-  String _name = "Name";
-  String _type = "type";
-  String _origin = "Bangalore";
-  String _eta = "2:00 hrs";
+  AirQuality aqiData = AirQuality(aqi: 0, lat: 0, lon: 0, forecast: []);
+  // late AirQuality aqiData;
+
+  String _location = "";
+  String _name = "Green Zone!";
+  String _type = "No immediate climate concerns";
+  // String _origin = " --";
+  String _eta = "00:00 hrs";
 
   @override
   void initState() {
-    super.initState();
-    _getLocation();
-    _getClimateUpdates();
-  }
+    // _getLocation();
+    fetchAirQuality().then(
+      (value) async {
+        setState(() {
+          aqiData = value;
+          _location = "Lati : ${aqiData.lat} , Long :  ${aqiData.lon}";
+        });
+      },
+    );
 
-  //get the location using geolocator api
-  _getLocation() async {}
-  //get the climate updates using api by the location data obtained from _getLocation()
-  _getClimateUpdates() async {}
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +45,17 @@ class _HomeState extends State<Home> {
     final appColors = context.appColors;
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: appColors.accent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "ResQAid",
+          style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                fontSize: 40,
+              ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -47,87 +63,114 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome to',
+                'Welcome',
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       color: appColors.richBlack,
                     ),
               ),
               Text(
-                "ResQAid",
+                "Aryan",
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       fontSize: 40,
                     ),
               ),
               const Gap(10),
               Card(
+                color: appColors.accent,
                 elevation: 10,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        _name,
-                        style:
-                            Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  color: appColors.richBlack,
-                                  fontSize: 35,
-                                ),
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icons/outline/like.svg",
+                            height: screenHeight * 0.1,
+                            color: appColors.primary,
+                          ),
+                          const Gap(10),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _name,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .copyWith(
+                                      color: appColors.richBlack,
+                                      fontSize: 35,
+                                    ),
+                              ),
+                              Text(
+                                _type,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      color:
+                                          appColors.richBlack.withOpacity(0.6),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                      Text(
-                        _type,
-                        style:
-                            Theme.of(context).textTheme.displayMedium!.copyWith(
-                                  color: appColors.richBlack,
-                                  fontSize: 20,
-                                ),
+                      // const Gap(10),
+                      const Gap(10),
+                      Center(
+                        child: Text(
+                          "ETA : ${_eta}",
+                          style:
+                              Theme.of(context).textTheme.titleLarge!.copyWith(
+                                    color: appColors.richBlack,
+                                    fontSize: 15,
+                                  ),
+                        ),
                       ),
-                      const Divider(
-                        thickness: 2,
+                      Divider(
+                        color: appColors.primary,
+                        thickness: 1,
                         endIndent: 10,
                         indent: 10,
                       ),
-                      Text(
-                        _origin,
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: appColors.richBlack,
-                            fontWeight: FontWeight.w700
-                            // fontSize: 35,
-                            ),
-                      ),
-                      Text(
-                        "ETA : ${_eta}",
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: appColors.richBlack,
-                              fontSize: 15,
-                            ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset("assets/icons/outline/location.svg"),
+                          Text(
+                            _location,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  color: appColors.richBlack,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
               ),
-              const Gap(10),
-              Container(
-                width: screenWidth * 0.95,
-                height: screenHeight * 0.1,
-                decoration: BoxDecoration(
-                  color: appColors.navyBlue,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    _location,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: appColors.white,
-                          overflow: TextOverflow.fade,
-                        ),
-                  ),
-                ),
-              ),
+              // const Gap(10),
+              // Row(
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SvgPicture.asset("assets/icons/outline/location.svg"),
+              //     Text(_location, style: Theme.of(context).textTheme.bodyLarge),
+              //   ],
+              // ),
               const Gap(10),
               Text(
                 "Air Quality",
@@ -140,7 +183,7 @@ class _HomeState extends State<Home> {
               const Gap(10),
               Container(
                 width: screenWidth * 0.95,
-                height: screenHeight * 0.1,
+                height: screenHeight * 0.06,
                 decoration: BoxDecoration(
                   color: appColors.white,
                   border: Border.all(width: 4),
@@ -150,6 +193,10 @@ class _HomeState extends State<Home> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(10),
+                  child: Text(
+                    aqiData.aqi.toString(),
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 ),
               ),
               const Gap(10),
