@@ -162,27 +162,29 @@ class _CommunityState extends State<Community> {
                                   ),
                           textAlign: TextAlign.justify,
                         ),
-                        Center(
-                          child: Text(
-                            "Donated: ₹${posts[index].donationAmount}",
-                            style: TextStyle(
-                              color: appColors.primary,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
+                        Text(
+                          "Donated: ₹${posts[index].donationAmount}",
+                          style: TextStyle(
+                            color: appColors.richBlack,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            TextButton.icon(
+                            OutlinedButton.icon(
+                              style: ButtonStyle(
+                                  foregroundColor: WidgetStatePropertyAll(
+                                appColors.navyBlue,
+                              )),
                               icon: Icon(Icons.person_add),
                               onPressed: () {},
                               label: Text(
                                 "Volunteer",
                               ),
                             ),
-                            TextButton.icon(
+                            ElevatedButton.icon(
                               icon: Icon(Icons.monetization_on),
                               onPressed: () {},
                               label: Text(
