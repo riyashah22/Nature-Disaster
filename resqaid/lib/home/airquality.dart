@@ -55,7 +55,7 @@ Future<AirQuality> fetchAirQuality() async {
       'https://api.waqi.info/feed/here/?token=6b96a07ff45c1dcc3931d81e109506673c44e728'; // API URL
 
   final response = await http.get(Uri.parse(apiUrl));
-  // log(response.body);
+  log(response.body);
   if (response.statusCode == 200) {
     final jsonData = json.decode(response.body);
     return AirQuality.fromJson(jsonData);

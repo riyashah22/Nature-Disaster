@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/home/airquality.dart';
+import 'package:resqaid/theme/appColors.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
@@ -15,7 +16,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   AirQuality aqiData = AirQuality(aqi: 0, lat: 0, lon: 0, forecast: []);
   // late AirQuality aqiData;
-
   String _location = "";
   String _name = "Green Zone!";
   String _type = "No immediate climate concerns";
@@ -163,39 +163,37 @@ class _HomeState extends State<Home> {
                 ),
               ),
               // const Gap(10),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     SvgPicture.asset("assets/icons/outline/location.svg"),
-              //     Text(_location, style: Theme.of(context).textTheme.bodyLarge),
-              //   ],
+              // Text(
+              //   "Air Quality",
+              //   style: Theme.of(context).textTheme.displaySmall!.copyWith(
+              //         color: appColors.richBlack,
+              //         fontSize: 28,
+              //         overflow: TextOverflow.fade,
+              //       ),
               // ),
-              const Gap(10),
-              Text(
-                "Air Quality",
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: appColors.richBlack,
-                      fontSize: 28,
-                      overflow: TextOverflow.fade,
-                    ),
-              ),
               const Gap(10),
               Container(
                 width: screenWidth * 0.95,
                 height: screenHeight * 0.06,
                 decoration: BoxDecoration(
-                  color: appColors.white,
+                  color: aqiData.aqi <= 50
+                      ? appColors.primary
+                      : aqiData.aqi >= 50 && aqiData.aqi <= 100
+                          ? appColors.mateYellow
+                          : appColors.error,
                   border: Border.all(width: 4),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(30),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5.0),
                   child: Text(
-                    aqiData.aqi.toString(),
-                    style: Theme.of(context).textTheme.titleLarge,
+                    "Air Quality : ${aqiData.aqi.toString()}",
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: appColors.richBlack,
+                        ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -219,8 +217,8 @@ class _HomeState extends State<Home> {
                     Radius.circular(30),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
+                child: const Padding(
+                  padding: EdgeInsets.all(10),
                 ),
               ),
             ],
