@@ -299,7 +299,7 @@ class _CommunityState extends State<Community> {
                               ),
                             ),
                             ElevatedButton.icon(
-                              icon: const Icon(Icons.monetization_on),
+                              icon: const Icon(Icons.currency_rupee),
                               onPressed: () {
                                 // Show the loading dialog with the QR code
                                 showDialog(
