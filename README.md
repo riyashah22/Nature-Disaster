@@ -1,7 +1,5 @@
 # Widget-Wizards---Codefury-Hackathon
 
-# ResQAid - Disaster Preparedness and Response App
-
 ResQAid is a mobile application built with Flutter, designed to enhance disaster preparedness and response by providing real-time alerts, educational resources, and community engagement features. The app empowers users to stay informed, take appropriate actions during emergencies, and contribute to relief efforts.
 
 ## Features
