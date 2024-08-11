@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
+import 'package:resqaid/Notification/notificationHelper.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/home/airquality.dart';
+import 'package:resqaid/provider/user_provider.dart';
 import 'package:resqaid/theme/theme_ext.dart';
 import 'package:intl/intl.dart';
 import 'package:svg_flutter/svg_flutter.dart';
@@ -20,43 +23,43 @@ class _HomeState extends State<Home> {
     lon: 0,
     forecast: [
       Forecast(
-        day: "2024 - 08 - 09",
+        day: "2024-08-09",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 10",
+        day: "2024-08-10",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 11",
+        day: "2024-08-11",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 12",
+        day: "2024-08-12",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 13",
+        day: "2024-08-13",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 14",
+        day: "2024-08-14",
         avg: 0,
         min: 0,
         max: 0,
       ),
       Forecast(
-        day: "2024 - 08 - 15",
+        day: "2024-08-15",
         avg: 0,
         min: 0,
         max: 0,
@@ -84,7 +87,8 @@ class _HomeState extends State<Home> {
         });
       },
     );
-
+    NotificationService.showInstantNotification(
+        "Location", "Current location detected successfully");
     super.initState();
   }
 
@@ -92,7 +96,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-
+    final user = Provider.of<UserProvider>(context).user;
     final appColors = context.appColors;
 
     return Scaffold(
@@ -130,7 +134,7 @@ class _HomeState extends State<Home> {
                                 ),
                         children: [
                           TextSpan(
-                            text: "Vansh",
+                            text: user.username,
                             style: Theme.of(context)
                                 .textTheme
                                 .displayMedium!
@@ -146,11 +150,15 @@ class _HomeState extends State<Home> {
                         //   appColors.navyBlue,
                         // ),
                         ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.logout,
+                      color: appColors.richBlack,
                     ),
                     onPressed: () {},
-                    label: const Text("Log out"),
+                    label: Text(
+                      "Log out",
+                      style: TextStyle(color: appColors.richBlack),
+                    ),
                   )
                 ],
               ),
@@ -208,7 +216,7 @@ class _HomeState extends State<Home> {
                       const Gap(10),
                       Center(
                         child: Text(
-                          "Location fetched: ${DateFormat('yyyy-MM-dd hh:mm:ss').format(DateTime.now())}",
+                          "Location fetched: ${DateFormat('dd-MM-yyyy hh:mm:ss').format(DateTime.now())}",
                           style:
                               Theme.of(context).textTheme.titleLarge!.copyWith(
                                     color: appColors.navyBlue,
@@ -267,7 +275,7 @@ class _HomeState extends State<Home> {
                       : aqiData.aqi >= 50 && aqiData.aqi <= 100
                           ? appColors.mateYellow
                           : appColors.error,
-                  border: Border.all(width: 4),
+                  border: Border.all(width: 2),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(30),
                   ),
@@ -283,7 +291,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              const Gap(10),
+              const Gap(16),
               Text(
                 "Weekly Forecast",
                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -294,31 +302,73 @@ class _HomeState extends State<Home> {
               ),
               const Gap(10),
               Container(
-                height: screenHeight * 0.2,
+                height: screenHeight * 0.20,
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Container(
                       height: screenHeight * 0.1,
-                      width: screenWidth * 0.4,
+                      width: screenWidth * 0.3,
                       margin: const EdgeInsets.only(
                         right: 10,
                       ),
                       decoration: BoxDecoration(
-                        color: appColors.accent,
+                        // color: appColors.accent,
                         borderRadius: const BorderRadius.all(
                           Radius.circular(30),
+                        ),
+                        border: Border.all(
+                          width: 1,
+                          color: Colors.black.withOpacity(0.2),
                         ),
                       ),
                       child: Column(
                         children: [
                           const Gap(20),
-                          Text("${aqiData.forecast[index].day}"),
-                          const Gap(10),
+                          Text(
+                            DateFormat('yyyy-MM-dd').format(
+                              DateTime.parse(aqiData.forecast[index].day),
+                            ),
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
                           const Divider(),
-                          Text("Max: ${aqiData.forecast[index].max}"),
-                          Text("Min: ${aqiData.forecast[index].min}"),
-                          Text("Avg: ${aqiData.forecast[index].avg}"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/htemp.png",
+                                height: 30,
+                                width: 30,
+                              ), // Icon for Max,
+                              SizedBox(width: 16),
+                              Text("${aqiData.forecast[index].max}"),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Image.asset(
+                                "assets/images/atemp.png",
+                                height: 25,
+                                width: 25,
+                              ),
+                              SizedBox(width: 21),
+                              Text("${aqiData.forecast[index].avg}"),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/ltemp.png",
+                                height: 30,
+                                width: 30,
+                              ), // Icon for Min
+                              SizedBox(width: 16),
+                              Text("${aqiData.forecast[index].min}"),
+                            ],
+                          )
                         ],
                       ),
                     );
@@ -341,6 +391,29 @@ class _HomeState extends State<Home> {
               //     padding: EdgeInsets.all(10),
               //   ),
               // ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Designed & Developed By",
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      "Vansh Shah, Riya Shah &  Aryan Mahji",
+                      style: Theme.of(context).textTheme.labelLarge,
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),

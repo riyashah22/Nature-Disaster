@@ -50,7 +50,7 @@ class _CommunityState extends State<Community> {
       donationAmount: 23750.00,
       deadline: "30-09-2022",
       imageUrl:
-          "https://ichef.bbci.co.uk/news/1536/cpsprodpb/c09e/live/50608890-4e3d-11ef-93dc-c92fccfe6baf.jpg.webp",
+          "https://images.moneycontrol.com/static-mcnews/2024/07/20240702052720_Assam-Floods-1.png?impolicy=website&width=770&height=431",
       description:
           "The 2022 monsoon season brought severe flooding to Assam, displacing millions of people and causing significant damage to property. Donations are being collected to support rescue operations, provide medical aid, and assist in rehabilitation.",
       postedBy: "Assam State Government",
@@ -62,7 +62,7 @@ class _CommunityState extends State<Community> {
       donationAmount: 120000.00,
       deadline: "30-12-2021",
       imageUrl:
-          "https://ichef.bbci.co.uk/news/1536/cpsprodpb/c09e/live/50608890-4e3d-11ef-93dc-c92fccfe6baf.jpg.webp",
+          "https://static.theprint.in/wp-content/uploads/2019/08/Maharashtra-flood.jpg",
       description:
           "The floods in Maharashtra in July 2021, caused by heavy rainfall, led to significant loss of life and property. The relief fund focuses on providing immediate assistance, including shelter, food, and medical care to affected communities.",
       postedBy: "Maharashtra State Government",
@@ -89,7 +89,7 @@ class _CommunityState extends State<Community> {
         icon: const Icon(Icons.emergency_share_rounded),
       ),
       appBar: AppBar(
-        title: const Text("Support"),
+        title: const Text("Community AID Requests"),
       ),
       body: Container(
         width: width,
@@ -97,15 +97,15 @@ class _CommunityState extends State<Community> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                "Community AID Requests",
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
+            // Center(
+            //   child: Text(
+            //     "Community AID Requests",
+            //     style: Theme.of(context).textTheme.titleLarge,
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 8,
+            // ),
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),

@@ -4,6 +4,7 @@ import 'package:resqaid/community/community.dart';
 import 'package:resqaid/education/education.dart';
 import 'package:resqaid/home/home.dart';
 import 'package:resqaid/medkit/medkit.dart';
+import 'package:resqaid/theme/theme_ext.dart';
 
 class Navbar extends StatefulWidget {
   static const String routeName = "/nav-bar";
@@ -25,6 +26,7 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = context.appColors;
     return Scaffold(
       extendBody: false,
       appBar: AppBar(
@@ -33,8 +35,8 @@ class _NavbarState extends State<Navbar> {
       body: _modules[selectIndex],
       bottomNavigationBar: DotBottomNavBar(
         // backgroundColor: Colors.transparent,
-        selectedColor: Colors.green,
-        dotColor: Colors.green,
+        selectedColor: appColors.primary,
+        dotColor: appColors.primary,
         currentIndex: selectIndex,
         onTap: (value) {
           setState(() {
@@ -50,17 +52,17 @@ class _NavbarState extends State<Navbar> {
           BottomNavItem(
             emptySvg: "assets/icons/outline/community.svg",
             fillSvg: "assets/icons/fill/community.svg",
-            label: "Support",
+            label: "AID Request",
           ),
           BottomNavItem(
             emptySvg: "assets/icons/outline/education.svg",
             fillSvg: "assets/icons/fill/education.svg",
-            label: "Education",
+            label: "Guidence",
           ),
           BottomNavItem(
             emptySvg: "assets/icons/outline/medkit.svg",
             fillSvg: "assets/icons/fill/medkit.svg",
-            label: "Med Kit",
+            label: "Self-Care",
           ),
         ],
       ),
