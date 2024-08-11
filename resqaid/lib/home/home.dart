@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import 'package:resqaid/Notification/notificationHelper.dart';
+import 'package:resqaid/authentication/authentication.dart';
 import 'package:resqaid/chatbot/chatbot.dart';
 import 'package:resqaid/home/airquality.dart';
 import 'package:resqaid/provider/user_provider.dart';
@@ -154,7 +155,11 @@ class _HomeState extends State<Home> {
                       Icons.logout,
                       color: appColors.richBlack,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<UserProvider>(context, listen: false)
+                          .setUser(username: "", email: "", password: "");
+                      Navigator.pushNamed(context, Authentication.routeName);
+                    },
                     label: Text(
                       "Log out",
                       style: TextStyle(color: appColors.richBlack),
