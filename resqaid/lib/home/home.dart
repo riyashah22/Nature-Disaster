@@ -413,7 +413,7 @@ class _HomeState extends State<Home> {
                       height: 4,
                     ),
                     Text(
-                      "Vansh Shah, Riya Shah &  Aryan Mahji",
+                      "Vansh Shah, Riya Shah &  Aryan Majhi",
                       style: Theme.of(context).textTheme.labelLarge,
                     )
                   ],
