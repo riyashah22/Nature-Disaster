@@ -9,7 +9,8 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 ## Demo Video
 
 [<video src="https://www.youtube.com/watch?v=bStQwuVibyI"></video>
-](https://github.com/user-attachments/assets/d453829d-aa76-42ca-9e6d-fff73011f009)
+](https://github.com/user-attachments/assets/ceff5d9b-1b4e-441c-81d7-2ad6af067da0)
+
 
 
 
