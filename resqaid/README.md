@@ -76,8 +76,8 @@ Start the app 🚀
 
 ## 👥 Authors
 
-- [Vansh Shah 🧑‍💻](https://www.github.com/vansh132)
 - [Riya Shah 👩‍💻](https://www.github.com/riyashah22)
+- [Vansh Shah 🧑‍💻](https://www.github.com/vansh132)
 - [Aryan Majhi 🧑‍💻](https://github.com/aryanmajhi75/)
   
 ---
