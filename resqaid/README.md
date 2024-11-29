@@ -52,7 +52,7 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 Clone the project 🛠️
 
 ```bash
-  git clone https://github.com/vansh132/ResQAid.git
+  git clone [https://github.com/vansh132/ResQAid.git](https://github.com/riyashah22/Nature-Disaster/tree/main]
 ```
 
 Go to the project directory 📂
