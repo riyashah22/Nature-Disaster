@@ -84,4 +84,4 @@ Start the app 🚀
 
 ## 💬 Feedback
 
-If you have any feedback, please reach out to us at 📧 shah.vansh132@gmail.com
+If you have any feedback, please reach out to us at 📧 riyapshah22@gmail.com
