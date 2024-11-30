@@ -26,11 +26,12 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 ---
 
 ## 📷 Screenshots
-<img width="400" alt="Screenshot 2024-09-19 at 20 36 35" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.08.28 portrait_mhguzl.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 36 35" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.08.28-portrait_mhguzl.png">
 <img width="400" alt="Screenshot 2024-09-19 at 20 36 47" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.09.38-portrait_in3d1x.png">
 <img width="400" alt="Screenshot 2024-09-19 at 20 37 03" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.06-portrait_fza2ov.png">
 <img width="400" alt="Screenshot 2024-09-19 at 20 38 45" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.44-portrait_dbxkc1.png">
 <img width="400" alt="Screenshot 2024-09-19 at 20 38 28" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968242/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.10-portrait_bronxh.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 38 28" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.15-portrait_jmfqnw.png">
 <img width="400" alt="Screenshot 2024-09-19 at 20 38 39" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.24-portrait_egvumy.png">
 
 
