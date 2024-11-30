@@ -26,14 +26,14 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 ---
 
 ## 📷 Screenshots
-<img width="400" alt="Screenshot 2024-09-19 at 20 36 35" src="https://github.com/user-attachments/assets/b3405b99-8ac0-4a3b-bd40-220d31d19cfa">
-<img width="400" alt="Screenshot 2024-09-19 at 20 36 47" src="https://github.com/user-attachments/assets/5119ad27-9848-4e11-b159-949765bae0d2">
-<img width="400" alt="Screenshot 2024-09-19 at 20 37 03" src="https://github.com/user-attachments/assets/c284334b-ed11-4099-9b70-af0d553196a6">
-<img width="400" alt="Screenshot 2024-09-19 at 20 38 28" src="https://github.com/user-attachments/assets/ab3a3f1b-b3e8-4597-9122-187ba2bb6f50">
-<img width="400" alt="Screenshot 2024-09-19 at 20 38 39" src="https://github.com/user-attachments/assets/19d50d20-0a5d-4821-8464-fa857b66862b">
-<img width="400" alt="Screenshot 2024-09-19 at 20 38 45" src="https://github.com/user-attachments/assets/ba862671-1829-410a-a59e-d84c5726cb1e">
-<img width="400" alt="Screenshot 2024-09-19 at 20 37 36" src="https://github.com/user-attachments/assets/ca705eaf-a5ec-4545-abf7-03a95c8a4e17">
-<img width="400" alt="Screenshot 2024-09-19 at 20 37 53" src="https://github.com/user-attachments/assets/60ce6623-4660-4744-a1e0-83df273477bd">
+<img width="400" alt="Screenshot 2024-09-19 at 20 36 35" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.08.28 portrait_mhguzl.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 36 47" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968240/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.09.38-portrait_in3d1x.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 37 03" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.06-portrait_fza2ov.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 38 45" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.44-portrait_dbxkc1.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 38 28" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968242/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.10-portrait_bronxh.png">
+<img width="400" alt="Screenshot 2024-09-19 at 20 38 39" src="https://res.cloudinary.com/dyeirhllm/image/upload/v1732968241/Simulator_Screenshot_-_iPhone_15_Pro_-_2024-09-22_at_19.10.24-portrait_egvumy.png">
+
+
 
 ## 🛠️ Tech Stack
 
