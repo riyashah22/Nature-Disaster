@@ -34,7 +34,7 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 ## 🛠️ Tech Stack
 
 - *Framework*: [Flutter](https://flutter.dev/)
-- *State Management*: Provider
+- *State Management*: GetX
 - *Background processing:* Work manager
 - *Location Services*: GeoLocator
 - *UI Components*: Material Design
