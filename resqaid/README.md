@@ -8,7 +8,7 @@ ResQAid is a mobile application built with Flutter, designed to enhance disaster
 
 - 🏠 *Home Screen*:
   - Fetches user's current location using 📍GeoLocator.
-  - Displays real-time disaster alerts, weather conditions 🌦️, air quality index 🌬️, and forecasts.
+  - Displays real-time alerts, weather conditions 🌦️, air quality index 🌬️, and forecasts.
   - Includes a chatbot powered by GEMINI for interactive communication.
 
 - 🆘 *AID Request Screen*:
